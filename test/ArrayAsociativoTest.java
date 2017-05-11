@@ -158,4 +158,11 @@ public class ArrayAsociativoTest {
         System.out.println("OK!");
     }
     
+    // Test 17
+    @Test
+    public void testRemoveNotEmptyArrayNotExistsKey() {
+        array_not_empty.put(KEY+"1", VALUE+"2");
+        assertFalse(array_not_empty.remove("pepe bórrate"));
+    }
+    
 }
