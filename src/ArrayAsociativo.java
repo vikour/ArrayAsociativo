@@ -78,4 +78,8 @@ public class ArrayAsociativo {
         
     }
     
+    public String getOrElse(String key, String defaultValue) {
+        return defaultValue;
+    }
+    
 }

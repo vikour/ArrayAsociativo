@@ -82,4 +82,14 @@ public class ArrayAsociativoTest {
         assertEquals("nothing", a.getOrElse("key","nothing"));
     }
     
+    // Test 9
+    @Test
+    public void testGetOrElseKeyExists() {
+        ArrayAsociativo a = new ArrayAsociativo("initial","Value");
+        
+        assertEquals("Value", a.getOrElse("initial", "default"));
+        a.put("key", "tree");
+        assertEquals("tree", a.getOrElse("key", "default"));
+    }
+    
 }
