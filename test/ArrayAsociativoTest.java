@@ -29,4 +29,10 @@ public class ArrayAsociativoTest {
         a.get("key");
     }
     
+    //Buscar el valor correspondiente a una clave en un array en el que existe 
+    //dicha clave
+    public searchValueKeyInArray() {
+        ArrayAsociativo a = new ArrayAsociativo("key","value");
+        assert("value",a.get("key"));
+    }
 }
