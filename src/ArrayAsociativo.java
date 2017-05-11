@@ -120,7 +120,26 @@ public class ArrayAsociativo {
     }
     
     boolean remove(String key) {
-        return false;
+        Node curr = first;
+        Node prev = null;
+        boolean removed = false;
         
+        while (curr != null && curr.key.compareTo(key) != 0) {
+            prev = curr;
+            curr = curr.next;
+        }
+        
+        if (curr != null) {
+            
+            if (prev == null)
+                first = first.next;
+            else
+                prev.next = curr.next;
+            
+            removed = true;
+            size--;
+        }
+        
+        return removed;
     }
 }
