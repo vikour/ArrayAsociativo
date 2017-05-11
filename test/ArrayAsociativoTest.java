@@ -74,7 +74,7 @@ public class ArrayAsociativoTest {
         assertEquals(size, a.size());
     }
     
-    // Test 8
+    // Test 9
     @Test
     public void testGetOrElseEmptyArray() {
         ArrayAsociativo a = new ArrayAsociativo();
@@ -82,7 +82,7 @@ public class ArrayAsociativoTest {
         assertEquals("nothing", a.getOrElse("key","nothing"));
     }
     
-    // Test 9
+    // Test 10
     @Test
     public void testGetOrElseKeyExists() {
         ArrayAsociativo a = new ArrayAsociativo("initial","Value");
@@ -90,6 +90,15 @@ public class ArrayAsociativoTest {
         assertEquals("Value", a.getOrElse("initial", "default"));
         a.put("key", "tree");
         assertEquals("tree", a.getOrElse("key", "default"));
+    }
+    
+    // Test 11
+    public void testGetOrElseKeyDontExist() {
+        ArrayAsociativo a = new ArrayAsociativo("initial","value");
+        
+        assertEquals("nothing", a.getOrElse("Not exists", "nothing"));
+        a.put("inital2", "someValue");
+        assertEquals("nothing", a.getOrElse("Not exists", "nothing"));
     }
     
 }
