@@ -1,0 +1,9 @@
+/*
+!src/
+!test/
+!src/*
+!test/*
+!nbproject/
+!nbproject/*
+nbproject/private
+!.gitignore
