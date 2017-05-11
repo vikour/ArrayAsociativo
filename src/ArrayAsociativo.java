@@ -13,15 +13,23 @@ public class ArrayAsociativo {
     }
     
     private Node first;
-    private int tam;
+    private int size;
 
     public ArrayAsociativo() {
         this.first = null;
-        tam = 0;
+        size = 0;
+    }
+    
+    public ArrayAsociativo(String key, String value) {
+        first = new Node();
+        first.key = key;
+        first.value = value;
+        first.next = null;
+        this.size = 1;
     }
     
     public int size() {
-        return tam;
+        return size;
     }
     
 }

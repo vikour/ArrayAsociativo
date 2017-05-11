@@ -14,4 +14,10 @@ public class ArrayAsociativoTest {
         assertEquals(0, a.size());
     }
     
+    @Test
+    public void sizeNotEmpty() {
+        ArrayAsociativo a = new ArrayAsociativo("key","value");
+        assertNotEquals(0, a.size());
+    }
+    
 }
