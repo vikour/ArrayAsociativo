@@ -59,17 +59,23 @@ public class ArrayAsociativo {
         Node curr = first;
         Node prev = null;
         
-        while (curr != null) {
+        while (curr != null && curr.key.compareTo(key) != 0) {
             prev = curr;
             curr = curr.next;
         }
         
-        if (prev == null)
-            first = new Node(key,value,null);
-        else
-            prev.next = new Node(key,value,null);
-
-        size++;
+        if (curr != null) 
+            curr.value = value;
+        else {
+            
+            if (prev == null)
+                first = new Node(key,value,null);
+            else
+                prev.next = new Node(key,value,null);
+            
+            size++;
+        }
+        
     }
     
 }
