@@ -45,4 +45,12 @@ public class ArrayAsociativoTest {
         a.get("key");
     }
     
+    //Insertar un nuevo par en un array vacío
+    @Test
+    public void insertPairEmptyArray() {
+        ArrayAsociativo a = new ArrayAsociativo();
+        a.put("key","value");
+        assertEquals("value", a.get("key"));
+    }
+    
 }
