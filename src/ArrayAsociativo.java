@@ -36,7 +36,12 @@ public class ArrayAsociativo {
     }
     
     public String get(String key) {
-        throw new NoSuchElementException();
+        
+        if (first != null && first.key.compareTo(key) == 0)
+            return first.value;
+        else
+            throw new NoSuchElementException();                
+
     }
     
 }
