@@ -31,8 +31,8 @@ public class ArrayAsociativoTest {
     
     //Buscar el valor correspondiente a una clave en un array en el que existe 
     //dicha clave
-    public searchValueKeyInArray() {
+    public void searchValueKeyInArray() {
         ArrayAsociativo a = new ArrayAsociativo("key","value");
-        assert("value",a.get("key"));
+        assertEquals("value",a.get("key"));
     }
 }
