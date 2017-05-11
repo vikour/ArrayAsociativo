@@ -64,4 +64,14 @@ public class ArrayAsociativoTest {
         assertEquals(size + 1, a.size());
     }
     
+    @Test
+    public void insertPairModifyValue() {
+        ArrayAsociativo a = new ArrayAsociativo("initial", "initialValue");
+        int size = a.size();
+        
+        a.put("initial","newValue");
+        assertEquals("newValue", a.get("initial"));
+        assertEquals(size, a.size());
+    }
+    
 }
