@@ -115,8 +115,8 @@ public class ArrayAsociativo {
         return value;
     }
 
-    public boolean containsKey(String initial) {
-        return false;
+    public boolean containsKey(String key) {
+        return searchNode(key) != null;
     }
     
 }

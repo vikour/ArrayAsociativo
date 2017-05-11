@@ -119,7 +119,7 @@ public class ArrayAsociativoTest {
     @Test
     public void testContainsKeyNotEmptyKeyExists() {
         assertTrue(array_not_empty.containsKey(KEY));
-        array_empty.put(KEY+"ya", VALUE+" now");
+        array_not_empty.put(KEY+"ya", VALUE+" now");
         assertTrue(array_not_empty.containsKey(KEY+"ya"));
     }
     
