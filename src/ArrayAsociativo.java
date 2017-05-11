@@ -13,6 +13,17 @@ public class ArrayAsociativo {
         String key;
         String value;
         Node next;
+
+        public Node() {
+            this(null,null,null);
+        }
+
+        public Node(String key, String value, Node next) {
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+        
     }
     
     private Node first;
@@ -24,10 +35,7 @@ public class ArrayAsociativo {
     }
     
     public ArrayAsociativo(String key, String value) {
-        first = new Node();
-        first.key = key;
-        first.value = value;
-        first.next = null;
+        first = new Node(key,value,null);
         this.size = 1;
     }
     
@@ -36,19 +44,32 @@ public class ArrayAsociativo {
     }
     
     public String get(String key) {
+        Node curr = first;
         
-        if (first != null && first.key.compareTo(key) == 0)
-            return first.value;
-        else
-            throw new NoSuchElementException();                
-
+        while (curr != null && curr.key.compareTo(key) != 0)
+            curr = curr.next;
+        
+        if (curr == null)
+            throw new NoSuchElementException();
+        
+        return curr.value;
     }
     
     public void put(String key, String value) {
-        first = new Node();
-        first.key = key;
-        first.value = value;
-        first.next = null;
+        Node curr = first;
+        Node prev = null;
+        
+        while (curr != null) {
+            prev = curr;
+            curr = curr.next;
+        }
+        
+        if (prev == null)
+            first = new Node(key,value,null);
+        else
+            prev.next = new Node(key,value,null);
+
+        size++;
     }
     
 }

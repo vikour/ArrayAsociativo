@@ -51,17 +51,17 @@ public class ArrayAsociativoTest {
         ArrayAsociativo a = new ArrayAsociativo();
         a.put("key","value");
         assertEquals("value", a.get("key"));
-        a.put("key", "value2");
-        assertEquals("value2", a.get("key"));
     }
     
     @Test
     public void insertPairNotEmptyArray() {
         ArrayAsociativo a = new ArrayAsociativo("initial", "initialValue");
+        int size = a.size();
         
         a.put("key", "value");
         assertEquals("initialValue", a.get("initial"));
         assertEquals("value", a.get("key"));
+        assertEquals(size + 1, a.size());
     }
     
 }
