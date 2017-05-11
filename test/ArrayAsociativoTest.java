@@ -1,4 +1,5 @@
 
+import java.security.NoSuchAlgorithmException;
 import java.util.NoSuchElementException;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -35,4 +36,13 @@ public class ArrayAsociativoTest {
         ArrayAsociativo a = new ArrayAsociativo("key","value");
         assertEquals("value",a.get("key"));
     }
+    
+    //Buscar el valor correspondiente a una clave en un array en el que no existe
+    //la clave.
+    @Test(expected = NoSuchElementException.class)
+    public void searchValueByKeyNotInArray() {
+        ArrayAsociativo a = new ArrayAsociativo("hola", "adios");
+        a.get("key");
+    }
+    
 }
