@@ -95,5 +95,9 @@ public class ArrayAsociativo {
         
         return value;
     }
+
+    boolean containsKey(String initial) {
+        return false;
+    }
     
 }
