@@ -20,4 +20,8 @@ public class ArrayAsociativo {
         tam = 0;
     }
     
+    public int size() {
+        return tam;
+    }
+    
 }

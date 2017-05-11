@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class ArrayAsociativoTest {
     
     @Test
-    public static void sizeEmpty() {
+    public void sizeEmpty() {
         ArrayAsociativo a = new ArrayAsociativo();
         assertEquals(0, a.size());
     }
