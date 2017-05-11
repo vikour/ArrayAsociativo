@@ -55,4 +55,13 @@ public class ArrayAsociativoTest {
         assertEquals("value2", a.get("key"));
     }
     
+    @Test
+    public void insertPairNotEmptyArray() {
+        ArrayAsociativo a = new ArrayAsociativo("initial", "initialValue");
+        
+        a.put("key", "value");
+        assertEquals("initialValue", a.get("initial"));
+        assertEquals("value", a.get("key"));
+    }
+    
 }
