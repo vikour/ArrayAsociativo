@@ -115,7 +115,7 @@ public class ArrayAsociativo {
         return value;
     }
 
-    boolean containsKey(String initial) {
+    public boolean containsKey(String initial) {
         return false;
     }
     

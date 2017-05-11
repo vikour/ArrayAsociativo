@@ -110,8 +110,17 @@ public class ArrayAsociativoTest {
     }
     
     // Test 13
+    @Test
     public void testContainsKeyNotEmptyArrayNotExistsKey() {
         assertFalse(array_not_empty.containsKey(KEY+"ya"));
+    }
+    
+    // Test 14
+    @Test
+    public void testContainsKeyNotEmptyKeyExists() {
+        assertTrue(array_not_empty.containsKey(KEY));
+        array_empty.put(KEY+"ya", VALUE+" now");
+        assertTrue(array_not_empty.containsKey(KEY+"ya"));
     }
     
 }
