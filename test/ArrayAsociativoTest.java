@@ -51,6 +51,8 @@ public class ArrayAsociativoTest {
         ArrayAsociativo a = new ArrayAsociativo();
         a.put("key","value");
         assertEquals("value", a.get("key"));
+        a.put("key", "value2");
+        assertEquals("value2", a.get("key"));
     }
     
 }
