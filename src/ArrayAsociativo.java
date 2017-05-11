@@ -43,16 +43,22 @@ public class ArrayAsociativo {
         return size;
     }
     
-    public String get(String key) {
+    private Node searchNode(String key) {
         Node curr = first;
         
         while (curr != null && curr.key.compareTo(key) != 0)
             curr = curr.next;
         
-        if (curr == null)
+        return curr;
+    }
+    
+    public String get(String key) {
+        Node node = searchNode(key);
+        
+        if (node == null)
             throw new NoSuchElementException();
         
-        return curr.value;
+        return node.value;
     }
     
     public void put(String key, String value) {
@@ -79,16 +85,15 @@ public class ArrayAsociativo {
     }
     
     public String getOrElse(String key, String defaultValue) {
-        Node curr = first;
+        Node node = searchNode(key);
+        String value;
         
-        while (curr != null && curr.key.compareTo(key) != 0)
-            curr = curr.next;
-        
-        if (curr == null)            
-            return defaultValue;
+        if (node == null)            
+            value = defaultValue;
         else
-            return curr.value;
+            value = node.value;
         
+        return value;
     }
     
 }
