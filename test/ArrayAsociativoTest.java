@@ -10,102 +10,103 @@ import static org.junit.Assert.*;
 
 public class ArrayAsociativoTest {
     
+    private static final ArrayAsociativo ARRAY_EMPTY = new ArrayAsociativo();
+    private static final String KEY = "initial";
+    private static final String VALUE = "initialValue";
+    private static final ArrayAsociativo ARRAY_NOT_EMPTY =
+            new ArrayAsociativo(KEY, VALUE);
+    
+    private ArrayAsociativo array_empty;
+    private ArrayAsociativo array_not_empty;
+    
+    @Before
+    public void linkArrays() {
+        array_empty = new ArrayAsociativo(ARRAY_EMPTY);
+        array_not_empty = new ArrayAsociativo(ARRAY_NOT_EMPTY);
+    }
+    
     @Test
     public void sizeEmpty() {
-        ArrayAsociativo a = new ArrayAsociativo();
-        assertEquals(0, a.size());
+        assertEquals(0, array_empty.size());
     }
     
     @Test
     public void sizeNotEmpty() {
-        ArrayAsociativo a = new ArrayAsociativo("key","value");
-        assertNotEquals(0, a.size());
+        assertNotEquals(0, array_not_empty.size());
     }
     
     // Buscar el valor correspondiente a una clave en un array vacío
     @Test(expected = NoSuchElementException.class)
     public void keyNotFoundEmptyArray() {
-        ArrayAsociativo a= new ArrayAsociativo();
-        String key = "key";
-        a.get("key");
+        array_not_empty.get(KEY+"hey");
     }
     
     //Buscar el valor correspondiente a una clave en un array en el que existe 
     //dicha clave
+    @Test
     public void searchValueKeyInArray() {
-        ArrayAsociativo a = new ArrayAsociativo("key","value");
-        assertEquals("value",a.get("key"));
+        assertEquals(VALUE,array_not_empty.get(KEY));
     }
     
     //Buscar el valor correspondiente a una clave en un array en el que no existe
     //la clave.
     @Test(expected = NoSuchElementException.class)
     public void searchValueByKeyNotInArray() {
-        ArrayAsociativo a = new ArrayAsociativo("hola", "adios");
-        a.get("key");
+        array_not_empty.get(KEY+"yah");
     }
     
     //Insertar un nuevo par en un array vacío
     @Test
     public void insertPairEmptyArray() {
-        ArrayAsociativo a = new ArrayAsociativo();
-        a.put("key","value");
-        assertEquals("value", a.get("key"));
+        array_empty.put("key","value");
+        assertEquals("value", array_empty.get("key"));
     }
     
     @Test
     public void insertPairNotEmptyArray() {
-        ArrayAsociativo a = new ArrayAsociativo("initial", "initialValue");
-        int size = a.size();
+        int size = array_not_empty.size();
         
-        a.put("key", "value");
-        assertEquals("initialValue", a.get("initial"));
-        assertEquals("value", a.get("key"));
-        assertEquals(size + 1, a.size());
+        array_not_empty.put("key", "value");
+        assertEquals(VALUE, array_not_empty.get(KEY));
+        assertEquals("value", array_not_empty.get("key"));
+        assertEquals(size + 1, array_not_empty.size());
     }
     
     @Test
     public void insertPairModifyValue() {
-        ArrayAsociativo a = new ArrayAsociativo("initial", "initialValue");
-        int size = a.size();
+        int size = array_not_empty.size();
         
-        a.put("initial","newValue");
-        assertEquals("newValue", a.get("initial"));
-        assertEquals(size, a.size());
+        array_not_empty.put(KEY,VALUE+" is new");
+        assertEquals(VALUE + " is new", array_not_empty.get(KEY));
+        assertEquals(size, array_not_empty.size());
     }
     
     // Test 9
     @Test
     public void testGetOrElseEmptyArray() {
-        ArrayAsociativo a = new ArrayAsociativo();
-        
-        assertEquals("nothing", a.getOrElse("key","nothing"));
+        assertEquals("nothing", array_empty.getOrElse("key","nothing"));
     }
     
     // Test 10
     @Test
     public void testGetOrElseKeyExists() {
-        ArrayAsociativo a = new ArrayAsociativo("initial","Value");
-        
-        assertEquals("Value", a.getOrElse("initial", "default"));
-        a.put("key", "tree");
-        assertEquals("tree", a.getOrElse("key", "default"));
+        assertEquals(VALUE, array_not_empty.getOrElse(KEY, "default"));
+        array_not_empty.put("key", "tree");
+        assertEquals("tree", array_not_empty.getOrElse("key", "default"));
     }
     
     // Test 11
+    @Test
     public void testGetOrElseKeyDontExist() {
-        ArrayAsociativo a = new ArrayAsociativo("initial","value");
-        
-        assertEquals("nothing", a.getOrElse("Not exists", "nothing"));
-        a.put("inital2", "someValue");
-        assertEquals("nothing", a.getOrElse("Not exists", "nothing"));
+        assertEquals("nothing", array_not_empty.getOrElse("Not exists", "nothing"));
+        array_not_empty.put("inital2", "someValue");
+        assertEquals("nothing", array_not_empty.getOrElse("Not exists", "nothing"));
     }
     
     // Test 12
+    @Test
     public void testContainsKeyEmptyArray() {
-        ArrayAsociativo a  = new ArrayAsociativo();
-        
-        assertFalse(a.containsKey("initial"));
+        assertFalse(array_empty.containsKey("initial"));
     }
     
 }

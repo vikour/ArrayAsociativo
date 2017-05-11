@@ -39,6 +39,25 @@ public class ArrayAsociativo {
         this.size = 1;
     }
     
+    public ArrayAsociativo(ArrayAsociativo array) {
+        Node src = array.first;
+        Node dst = null;
+        
+        while (src != null) {
+            
+            if (dst == null) {
+                first = new Node(src.key,src.value,null);
+                dst = first;
+            }
+            else
+                dst.next = new Node(src.key, src.value, null);
+            
+            src = src.next;
+        }
+        
+        size = array.size;
+    }
+    
     public int size() {
         return size;
     }
