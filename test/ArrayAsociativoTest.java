@@ -129,4 +129,33 @@ public class ArrayAsociativoTest {
         assertFalse(array_empty.remove(KEY));
     }
     
+    // Test 16
+    @Test
+    public void testRemoveNotEmptyArray() {
+        System.out.println("Testing 16 : Removing an element...");
+        // removed and array empty
+        System.out.print("\tChecking remove first ...");
+        assertTrue(array_not_empty.remove(KEY));
+        assertEquals(0, array_not_empty.size());
+        System.out.println("OK!");
+        // remove second (last)...                      
+        System.out.print("\tChecking remove last ...");        
+        array_not_empty.put(KEY+"1",VALUE+"1");        // (KEY1, ..)
+        array_not_empty.put(KEY+"2",VALUE+"2");        // (KEY1, KEY2 ...)
+        assertTrue(array_not_empty.remove(KEY+"2"));   // (KEY1, ...)
+        array_not_empty.get(KEY+"1");
+        assertEquals(1, array_not_empty.size());
+        System.out.println("OK!");
+        
+        // remove middle element. 
+        System.out.print("\tChecking remove middle ..."); 
+        array_not_empty.put(KEY+"2",VALUE+"2");        // (KEY1,KEY2,...)
+        array_not_empty.put(KEY+"3",VALUE+"3");        // (KEY1,KEY2,KEY3)
+        assertTrue(array_not_empty.remove(KEY+"2"));   // (KEY1,KEY3,...)
+        array_not_empty.get(KEY+"1");
+        array_not_empty.get(KEY+"3");
+        assertEquals(2,array_not_empty.size());
+        System.out.println("OK!");
+    }
+    
 }
