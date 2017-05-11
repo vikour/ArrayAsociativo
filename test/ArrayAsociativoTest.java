@@ -109,4 +109,9 @@ public class ArrayAsociativoTest {
         assertFalse(array_empty.containsKey("initial"));
     }
     
+    // Test 13
+    public void testContainsKeyNotEmptyArrayNotExistsKey() {
+        assertFalse(array_not_empty.containsKey(KEY+"ya"));
+    }
+    
 }
