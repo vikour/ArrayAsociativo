@@ -123,4 +123,10 @@ public class ArrayAsociativoTest {
         assertTrue(array_not_empty.containsKey(KEY+"ya"));
     }
     
+    // Test 15
+    @Test
+    public void testRemoveEmptyArray() {
+        assertFalse(array_empty.remove(KEY));
+    }
+    
 }
