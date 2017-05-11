@@ -101,4 +101,11 @@ public class ArrayAsociativoTest {
         assertEquals("nothing", a.getOrElse("Not exists", "nothing"));
     }
     
+    // Test 12
+    public void testContainsKeyEmptyArray() {
+        ArrayAsociativo a  = new ArrayAsociativo();
+        
+        assertFalse(a.containsKey("initial"));
+    }
+    
 }
