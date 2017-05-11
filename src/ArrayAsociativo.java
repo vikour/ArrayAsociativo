@@ -79,7 +79,16 @@ public class ArrayAsociativo {
     }
     
     public String getOrElse(String key, String defaultValue) {
-        return defaultValue;
+        Node curr = first;
+        
+        while (curr != null && curr.key.compareTo(key) != 0)
+            curr = curr.next;
+        
+        if (curr == null)            
+            return defaultValue;
+        else
+            return curr.value;
+        
     }
     
 }
