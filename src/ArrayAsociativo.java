@@ -1,3 +1,6 @@
+
+import java.util.NoSuchElementException;
+
 /**
  * Array asociativo (clave, valor)
  * 
@@ -30,6 +33,10 @@ public class ArrayAsociativo {
     
     public int size() {
         return size;
+    }
+    
+    public String get(String key) {
+        throw new NoSuchElementException();
     }
     
 }
