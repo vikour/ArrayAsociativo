@@ -44,4 +44,11 @@ public class ArrayAsociativo {
 
     }
     
+    public void put(String key, String value) {
+        first = new Node();
+        first.key = key;
+        first.value = value;
+        first.next = null;
+    }
+    
 }
