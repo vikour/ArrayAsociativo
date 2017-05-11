@@ -13,9 +13,11 @@ public class ArrayAsociativo {
     }
     
     private Node first;
+    private int tam;
 
     public ArrayAsociativo() {
         this.first = null;
+        tam = 0;
     }
     
 }
