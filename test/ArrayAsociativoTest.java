@@ -74,4 +74,12 @@ public class ArrayAsociativoTest {
         assertEquals(size, a.size());
     }
     
+    // Test 8
+    @Test
+    public void testGetOrElseEmptyArray() {
+        ArrayAsociativo a = new ArrayAsociativo();
+        
+        assertEquals("nothing", a.getOrElse("key","nothing"));
+    }
+    
 }
