@@ -119,4 +119,7 @@ public class ArrayAsociativo {
         return searchNode(key) != null;
     }
     
+    boolean remove(String key) {
+        return false;
+    }
 }
